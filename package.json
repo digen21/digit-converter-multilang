@@ -1,0 +1,28 @@
+{
+  "name": "@dmxdev/digit-converter-multilang",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "keywords": [],
+  "author": "DMX2104",
+  "license": "MIT",
+  "description": "convert english digit to multiple languages",
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "undici-types": "^6.21.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digen21/digit-converter-multilang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/digen21/digit-converter-multilang/issues"
+  },
+  "homepage": "https://github.com/digen21/digit-converter-multilang#readme"
+}
