@@ -17,16 +17,39 @@ export const digitMaps: DigitMaps = {
   ur: ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"],
 };
 
+/**
+ * Converts the digits of a given number or string to the corresponding digits
+ * in the specified language.
+ *
+ * @param number - The input number or string whose digits need to be converted.
+ *                 If `null` or `undefined`, an empty string is returned.
+ * @param lang - The target language for digit conversion. Defaults to "en".
+ *               Must be a key in the `digitMaps` object.
+ * @returns A string with the digits converted to the specified language.
+ *
+ * @example
+ * ```typescript
+ * convertDigits(123, "fa"); // Converts 123 to Persian digits: "۱۲۳"
+ * convertDigits("456", "ar"); // Converts "456" to Arabic digits: "٤٥٦"
+ * convertDigits(null); // Returns an empty string
+ * ```
+ */
 export function convertDigits(
-  number: number,
+  number: number | string,
   lang: SupportedLanguage = "en"
 ): string {
   const map = digitMaps[lang] || digitMaps["en"];
+
+  if (number === null || number === undefined) {
+    return "";
+  }
+
+  // Ensure the input is treated as a string
   return number
     .toString()
     .split("")
     .map((d) => {
-      const index = parseInt(d);
+      const index = parseInt(d, 10);
       return isNaN(index) ? d : map[index];
     })
     .join("");
